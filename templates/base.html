@@ -16,7 +16,13 @@
 
         <header>
             <nav class="nav">
-                <div class="nav-wrapper"></div>
+                <div class="nav-wrapper">
+                    <a href="{{ url_for('get_books') }}" class="brand-logo">Home</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                    <ul class="hide-on-med-and-down">
+                        <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                    </ul>
+                </div>
             </nav>
         </header>
 

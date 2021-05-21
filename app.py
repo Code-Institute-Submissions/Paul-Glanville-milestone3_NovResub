@@ -1,5 +1,5 @@
 import os
-from flask import flask
+from flask import Flask
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -17,3 +17,8 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/get_books")
+def get_tasks():
+    tasks = list(mongo.db.tasks.find())
+    return render_template("books.html", tasks=tasks)
+    

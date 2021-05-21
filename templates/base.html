@@ -17,30 +17,30 @@
         <header>
             <nav class="nav">
                 <nav class="nav-extended text-shadow light-blue darken-1">
-            <div class="nav-wrapper">
-                <a href="{{ url_for('get_books') }}" class="brand-logo">Book Reviews</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_books') }}">Home</a></li>
-                    {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('add_book') }}">New Review</a></li>
-                        {% if session.user|lower == "admin"|lower %}
+                    <div class="nav-wrapper">
+                        <a href="{{ url_for('get_books') }}" class="brand-logo">Book Reviews</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                            {% if session.user %}
+                            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                            <li><a href="{{ url_for('add_book') }}">New Review</a></li>
+                            {% if session.user|lower == "admin"|lower %}
                             <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                        {% endif %}
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('login') }}">Log In</a></li>
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
+                            {% endif %}
+                            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                            {% else %}
+                            <li><a href="{{ url_for('login') }}">Log In</a></li>
+                            <li><a href="{{ url_for('register') }}">Register</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </nav>
             </nav>
         </header>
 
       <!--JavaScript at end of body for optimized loading-->
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}

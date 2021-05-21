@@ -1,7 +1,5 @@
 import os
-from flask import (
-    Flask, flash, render_template,
-    redirect, request, session, url_for)
+from flask import (Flask, flash, render_template, redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -20,9 +18,9 @@ mongo = PyMongo(app)
 
 @app.route("/")
 @app.route("/get_books")
-def get_tasks():
-    tasks = list(mongo.db.tasks.find())
-    return render_template("books.html", tasks=tasks)
+def get_books():
+    books = list(mongo.db.tasks.find())
+    return render_template("books.html", books=books)
 
 
 if __name__ == "__main__":

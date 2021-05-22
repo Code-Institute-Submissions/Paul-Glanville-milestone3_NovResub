@@ -23,15 +23,15 @@
                         <ul class="right hide-on-med-and-down">
                             <li><a href="{{ url_for('get_books') }}">Home</a></li>
                             {% if session.user %}
-                            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                            <li><a href="{{ url_for('add_book') }}">New Review</a></li>
-                            {% if session.user|lower == "admin"|lower %}
-                            <li><a href="#">Manage Categories</a></li>
-                            {% endif %}
-                            <li><a href="#">Log Out</a></li>
+                                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                                <li><a href="{{ url_for('add_book') }}">New Review</a></li>
+                                {% if session.user|lower == "admin"|lower %}
+                                    <li><a href="#">Manage Categories</a></li>
+                                {% endif %}
+                                <li><a href="#">Log Out</a></li>
                             {% else %}
-                            <li><a href="#">Log In</a></li>
-                            <li><a href="#">Register</a></li>
+                                <li><a href="#">Log In</a></li>
+                                <li><a href="#">Register</a></li>
                             {% endif %}
                         </ul>
                     </div>

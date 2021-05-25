@@ -14,3 +14,23 @@ body {
     margin: 5px;
     line-height: 42px;
 }
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+}
+.section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.row .col.m4 {
+    width: 33.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}

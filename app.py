@@ -36,7 +36,8 @@ def register():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
+
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
@@ -58,6 +59,7 @@ def login():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
+
 
         if existing_user:
             if check_password_hash(
@@ -86,6 +88,14 @@ def profile(username):
     if session["user"]:
         return render_template("profile.html", username=username)
 
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You have been logged out")
+    session.pop("user")
     return redirect(url_for("login"))
 
 

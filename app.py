@@ -37,11 +37,9 @@ def register():
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
-
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-        
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
@@ -60,7 +58,6 @@ def login():
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
-
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
@@ -72,7 +69,7 @@ def login():
             else:
                 flash("incorrect username and/or password")
                 return redirect(url_for("login"))
-       
+
         else:
             flash("incorrect username and/or password")
             return redirect(url_for("login"))

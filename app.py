@@ -54,11 +54,11 @@ def register():
 
 
 @app.route("/login", method=["GET", "POST"])
-def register():
+def login():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
@@ -70,11 +70,11 @@ def register():
             else:
                 flash("incorrect username and/or password")
                 return redirect(url_for("login"))
-        
+       
         else:
-                flash("incorrect username and/or password")
-                return redirect(url_for("login"))
-    
+            flash("incorrect username and/or password")
+            return redirect(url_for("login"))
+
     return render_template("login.html")
 
 

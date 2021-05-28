@@ -31,7 +31,7 @@ def search():
     return render_template("books.html", books=books)
 
 
-@app.route("/register", method=["GET", "POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # check if username already exists in database
@@ -54,7 +54,7 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/login", method=["GET", "POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         # check if username already exists in database

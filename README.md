@@ -38,7 +38,13 @@ Register - once this button has been clicked the user will then be taken to anot
 
 ### Languages and Databases
 
-The languages used are HTML, CSS, JavaScript, Python, MongoDB database, Materialize
+The languages used are HTML, CSS, JavaScript, Python, MongoDB database, Materialize and flask.
+
+---
+
+### Deployment
+
+The project will be deployed to HEROKU 
 
 ---
 

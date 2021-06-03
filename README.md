@@ -30,11 +30,18 @@ As a user once logged in or registered I can add, edit and delete any details of
 ---
 
 ### Functions
+Log in - once clicked onwill take to another page or popup on the page to allow an existing user to log into their profile.
+Register - once this button has been clicked the user will then be taken to another page/ or a popup and be able to create a new profile.
+
 
 ---
 
-### Languages
+### Languages and Databases
 
-The languages used are HTML, CSS, JavaScript, Python and MongoDB database.
+The languages used are HTML, CSS, JavaScript, Python, MongoDB database, Materialize
 
 ---
+
+### Credits
+
+Excellence mentor for the guidance with the project, Code institute.  

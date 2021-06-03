@@ -22,10 +22,10 @@
 ## User Stories
 
 As a user I can add a review of a book that i have read for others to read and possibly purchase.
-
 As a user I can create a profile by registering or I can log in to account after registering.
-
 As a user once logged in or registered I can add, edit and delete any details of a book review created by the the account holder that is logged in.
+As a user I can easily navigate the page to, log in/Register, add, remove and update review content.
+As a user i feel the main page is simplified and minimalist and easy to navigate.
 
 ---
 

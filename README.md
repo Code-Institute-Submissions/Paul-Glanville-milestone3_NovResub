@@ -42,6 +42,13 @@ The languages used are HTML, CSS, JavaScript, Python, MongoDB database, Material
 
 ---
 
+### Testing
+
+had an issue while testing the page I was unable to click on the login and register buttons properly, after adding into the script.js i was able to click the nav functions and they functioned as expected.
+
+
+---
+
 ### Deployment
 
 The project will be deployed to HEROKU 
@@ -50,4 +57,4 @@ The project will be deployed to HEROKU
 
 ### Credits
 
-Excellence mentor for the guidance with the project, Code institute.  
+Excellence mentor for the guidance with the project, Code institute for the learning material.  

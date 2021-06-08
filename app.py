@@ -156,7 +156,22 @@ def add_category():
         mongo.db.categories.insert_one(category)
         flash("Category added successfully")
         return redirect(url_for("get_categories"))
+
     return render_template("add_category.html")
+
+
+@app.route("/edit_category/<edit_category>", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("add_category")
+        }
+        mongo.db.books.update({"_id": objectId(category_id)}, submit)
+        flash("Category successfully updated")
+        return redirect(url_for("get_categories"))
+
+    category = mongo.db.categories.find_one({"_id": objectId(category_id)})
+    return render_template("edit_category/html", category=category)
 
 
 if __name__ == "__main__":

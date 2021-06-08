@@ -134,6 +134,18 @@ def edit_book():
     return render_template("edit_book.html", book=book, categories=categories)
 
 
+@app.route("/delete_book/<book_id>")
+def delete_book(book_id):
+    mongo.db.tasks.remove({"_id": objectId(book_id)})
+    flash("Reveiw successfully deleted")
+    return redirect(url_for("get_books"))
+
+
+@app.route("/get_categories")
+def get_categories():
+    
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),

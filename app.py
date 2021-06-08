@@ -161,7 +161,7 @@ def add_category():
 
 
 @app.route("/edit_category/<edit_category>", methods=["GET", "POST"])
-def add_category():
+def add_category(category_id):
     if request.method == "POST":
         category = {
             "category_name": request.form.get("add_category")
@@ -174,7 +174,14 @@ def add_category():
     return render_template("edit_category/html", category=category)
 
 
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.tasks.remove({"_id": objectId(book_id)})
+    flash("Category successfully deleted")
+    return redirect(url_for("get_books"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
-        debug=True)
+        debug=False)

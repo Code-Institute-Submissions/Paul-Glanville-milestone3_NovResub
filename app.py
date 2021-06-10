@@ -104,6 +104,7 @@ def add_book():
         book = {
             "category_name": request.form.get("category_name"),
             "book_name": request.form.get("book_name"),
+            "author_name": request.form.get("author_name"),
             "book_description": request.form.get("book_description"),
             "published_date": request.form.get("published_date"),
             "img_url": request.form.get("img_url"),
@@ -121,8 +122,10 @@ def edit_book():
         book = {
             "category_name": request.form.get("category_name"),
             "book_name": request.form.get("book_name"),
+            "author_name": request.form.get("author_name"),
             "book_description": request.form.get("book_description"),
             "published_date": request.form.get("published_date"),
+            "img_url": request.form.get("img_url"),
             "created_by": session["user"]
         }
         mongo.db.books.update({"_id": objectId(book_id)}, submit)
@@ -136,46 +139,6 @@ def edit_book():
 def delete_book(book_id):
     mongo.db.tasks.remove({"_id": objectId(book_id)})
     flash("Reveiw successfully deleted")
-    return redirect(url_for("get_books"))
-
-
-@app.route("/get_categories")
-def get_categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)
-
-
-@app.route("/add_category", methods=["GET", "POST"])
-def add_category():
-    if request.method == "POST":
-        category = {
-            "category_name": request.form.get("add_category")
-        }
-        mongo.db.categories.insert_one(category)
-        flash("Category added successfully")
-        return redirect(url_for("get_categories"))
-
-    return render_template("add_category.html")
-
-
-@app.route("/edit_category/<edit_category>", methods=["GET", "POST"])
-def edit_category(category_id):
-    if request.method == "POST":
-        category = {
-            "category_name": request.form.get("add_category")
-        }
-        mongo.db.books.update({"_id": objectId(category_id)}, submit)
-        flash("Category successfully updated")
-        return redirect(url_for("get_categories"))
-
-    category = mongo.db.categories.find_one({"_id": objectId(category_id)})
-    return render_template("edit_category/html", category=category)
-
-
-@app.route("/delete_category/<category_id>")
-def delete_category(category_id):
-    mongo.db.tasks.remove({"_id": objectId(book_id)})
-    flash("Category successfully deleted")
     return redirect(url_for("get_books"))
 
 

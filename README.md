@@ -21,20 +21,20 @@
 
 ## User Stories
 
-As a user I can add a review of a book that i have read for others to read and possibly purchase.
-As a user I can create a profile by registering or I can log in to account after registering.
-As a user once logged in or registered I can add, edit and delete any details of a book review created by the the account holder that is logged in.
-As a user I can easily navigate the page to, log in/Register, add, remove and update review content.
-As a user i feel the main page is simplified and minimalist and easy to navigate.
+As a user I want to add a review of a book that I have read for others to read and possibly purchase.<br>
+As a user I want to create a profile by registering or I can log in to account after registering.<br>
+As a user once logged in or registered I want to be able to add, edit and delete any details of a book review created by the the account holder that is logged in.<br>
+As a user I want to be able to easily navigate the page to, log in/Register, add, remove and update review content.<br>
+As a user I feel the main page is simplified and minimalist and easy to navigate.<br>
 
 ---
 
 ### Functions
 
-Log in - once clicked will take to another page or popup on the page to allow an existing user to log into their profile.
-Register - once this button has been clicked the user will then be taken to another page/ or a popup and be able to create a new profile.
-Home - Takes the user back to the main page of the site.
-Search - allows the user to search for a specific review by book title or by author.
+Log in - once clicked will take to another page or popup on the page to allow an existing user to log into their profile.<br>
+Register - once this button has been clicked the user will then be taken to another page/ or a popup and be able to create a new profile.<br>
+Home - Takes the user back to the main page of the site.<br>
+Search - allows the user to search for a specific review by book title or by author.<br>
 
 ---
 
@@ -46,8 +46,8 @@ The languages used are HTML, CSS, JavaScript, Python, MongoDB database, Material
 
 ### Testing
 
-had an issue while testing the page I was unable to click on the login and register buttons properly, after adding into the script.js i was able to click the nav functions and they functioned as expected.
-originally when trying to load the page it wouldn't function, after a brief discussion and check over the app.py noticed that i had made minor spelling mistake for the functions and route, But have corrected and now runs when needed.
+had an issue while testing the page I was unable to click on the login and register buttons properly, after adding into the script.js i was able to click the nav functions and they functioned as expected.<br>
+originally when trying to load the page it wouldn't function, after a brief discussion and check over the app.py noticed that i had made minor spelling mistake for the functions and route, But have corrected and now runs when needed.<br>
 
 
 ---

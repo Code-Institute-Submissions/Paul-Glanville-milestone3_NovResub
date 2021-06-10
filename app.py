@@ -111,7 +111,6 @@ def add_book():
         mongo.db.books.insert_one(book)
         flash("Book successfully added")
         return redirect(url_for("get_books"))
-    
     categories = mongo.db.categories.fond().sort("category_name", 1)
     return render_template("add_book.html", categories=categories)
 

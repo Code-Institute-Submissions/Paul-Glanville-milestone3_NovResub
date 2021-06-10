@@ -161,7 +161,7 @@ def add_category():
 
 
 @app.route("/edit_category/<edit_category>", methods=["GET", "POST"])
-def add_category(category_id):
+def edit_category(category_id):
     if request.method == "POST":
         category = {
             "category_name": request.form.get("add_category")

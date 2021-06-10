@@ -30,9 +30,11 @@ As a user i feel the main page is simplified and minimalist and easy to navigate
 ---
 
 ### Functions
-Log in - once clicked onwill take to another page or popup on the page to allow an existing user to log into their profile.
-Register - once this button has been clicked the user will then be taken to another page/ or a popup and be able to create a new profile.
 
+Log in - once clicked will take to another page or popup on the page to allow an existing user to log into their profile.
+Register - once this button has been clicked the user will then be taken to another page/ or a popup and be able to create a new profile.
+Home - Takes the user back to the main page of the site.
+Search - allows the user to search for a specific review by book title or by author.
 
 ---
 
@@ -52,7 +54,7 @@ originally when trying to load the page it wouldn't function, after a brief disc
 
 ### Deployment
 
-The project will be deployed to HEROKU 
+The project can be accessed from Git Hub and will be deployed to HEROKU 
 
 ---
 

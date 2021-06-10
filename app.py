@@ -106,13 +106,13 @@ def add_book():
             "book_name": request.form.get("book_name"),
             "book_description": request.form.get("book_description"),
             "published_date": request.form.get("published_date"),
+            "img_url": request.form.get("img_url"),
             "created_by": session["user"]
         }
         mongo.db.books.insert_one(book)
         flash("Book successfully added")
         return redirect(url_for("get_books"))
-    categories = mongo.db.categories.fond().sort("category_name", 1)
-    return render_template("add_book.html", categories=categories)
+    return render_template("add_book.html")
 
 
 @app.route("/edit_book", methods=["GET", "POST"])
@@ -129,8 +129,7 @@ def edit_book():
         flash("Book successfully updated")
 
     book = mongo.db.books.find_one({"_id": objectId(book_id)})
-    categories = mongo.db.categories.fond().sort("category_name", 1)
-    return render_template("edit_book.html", book=book, categories=categories)
+    return render_template("edit_book.html", book=book)
 
 
 @app.route("/delete_book/<book_id>")

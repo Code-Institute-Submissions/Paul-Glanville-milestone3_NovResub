@@ -117,7 +117,7 @@ def add_book():
 
 
 @app.route("/edit_book", methods=["GET", "POST"])
-def edit_book():
+def edit_book(book_id):
     if request.method == "POST":
         book = {
             "category_name": request.form.get("category_name"),

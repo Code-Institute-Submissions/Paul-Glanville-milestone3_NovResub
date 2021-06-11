@@ -12,7 +12,7 @@
                     <select class="category_name" name="category_name" class="validate" required>
                         <option value="" disabled>Choose category</option>
                         {% for category in categories %}
-                            {% if category.category_name == task.category.name %}
+                            {% if category.category_name == book.category.name %}
                             <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
                             {% else %}
                             <option value="{{ category.category_name }}">{{ category.category_name }}</option>

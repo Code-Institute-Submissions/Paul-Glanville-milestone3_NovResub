@@ -8,7 +8,7 @@
 ### User Stories
 ### Functions
 ### Languages
-### Testing
+### Testing and Issues
 ### Deployment
 ### Credits
 
@@ -44,21 +44,22 @@ The languages used are HTML, CSS, JavaScript, Python, MongoDB database, Material
 
 ---
 
-### Testing
+### Testing and Issues
 
 had an issue while testing the page I was unable to click on the login and register buttons properly, after adding into the script.js i was able to click the nav functions and they functioned as expected.<br>
 originally when trying to load the page it wouldn't function, after a brief discussion and check over the app.py noticed that i had made minor spelling mistake for the functions and route, But have corrected and now runs when needed.<br>
 When using search function, error 500 would appear<br>
+Current issues with new review being added but noty displaying on either home page or profile page of the user<br>
 
 
 ---
 
 ### Deployment
 
-The project can be accessed from Git Hub and will be deployed to HEROKU 
+The project can be accessed from Git Hub and will be deployed to HEROKU connected via the github branch.
 
 ---
 
 ### Credits
 
-Excellence mentor for the guidance with the project, Code institute for the learning material.  
+Excellence mentor for the guidance with the project, Code institute for the learning material, Materialize. MongoDB for the Database.  

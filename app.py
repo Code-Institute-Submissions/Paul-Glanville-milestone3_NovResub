@@ -64,10 +64,11 @@ def login():
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}", format(
-                    request.form.get("username")))
-                return redirect(url_for("profile", username=session["user"]))
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}", format(
+                        request.form.get("username")))
+                    return redirect(url_for(
+                        "profile", username=session["user"]))
             else:
                 flash("incorrect username and/or password")
                 return redirect(url_for("login"))
@@ -119,7 +120,7 @@ def add_book():
 @app.route("/edit_book", methods=["GET", "POST"])
 def edit_book(book_id):
     if request.method == "POST":
-        book = {
+        submit = {
             "category_name": request.form.get("category_name"),
             "book_name": request.form.get("book_name"),
             "author_name": request.form.get("author_name"),

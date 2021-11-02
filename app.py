@@ -43,13 +43,19 @@ def register():
             return redirect(url_for("register"))
 
         register = {
+            "user_type": "normal_user",
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name")
         }
-        mongo.db.users.insert_one(register)
-
-        session["user"] = request.form.get("username").lower()
-        flash("Registration successful")
+        try:
+            mongo.db.users.insert_one(register)
+            session["user"] = request.form.get("username").lower()
+            flash("Registration successful")
+        except Exception as e:
+            flash("An exception occurred when adding a new user: " +
+                getattr(e, 'message', repr(e)))
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 

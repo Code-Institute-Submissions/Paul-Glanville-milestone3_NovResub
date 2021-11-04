@@ -60,6 +60,25 @@ def register():
     return render_template("register.html")
 
 
+def search_results(search):
+    results = []
+    search_string = search.data['search']
+
+    if search.data['search'] == '':
+        qry = db_session.query(album)
+        results = qry.all()
+
+    if not results:
+        flash('no results found!')
+        return redirect('/')
+    else:
+        # display results
+        return render_template('results.html', results=results)
+
+if __name__ == '__main__':
+    app.run()
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":

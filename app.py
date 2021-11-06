@@ -31,6 +31,25 @@ def search():
     return render_template("books.html", books=books)
 
 
+def search_results(search):
+    results = []
+    search_string = search.data['search']
+
+    if search.data['search'] == '':
+        qry = db_session.query(album)
+        results = qry.all()
+
+    if not results:
+        flash('no results found!')
+        return redirect('/')
+    else:
+        # display results
+        return render_template('results.html', results=results)
+
+if __name__ == '__main__':
+    app.run()
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -60,25 +79,6 @@ def register():
     return render_template("register.html")
 
 
-def search_results(search):
-    results = []
-    search_string = search.data['search']
-
-    if search.data['search'] == '':
-        qry = db_session.query(album)
-        results = qry.all()
-
-    if not results:
-        flash('no results found!')
-        return redirect('/')
-    else:
-        # display results
-        return render_template('results.html', results=results)
-
-if __name__ == '__main__':
-    app.run()
-
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -88,12 +88,12 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}", format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}", format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 flash("incorrect username and/or password")
                 return redirect(url_for("login"))

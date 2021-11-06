@@ -36,7 +36,7 @@ def search_results(search):
     search_string = search.data['search']
 
     if search.data['search'] == '':
-        qry = db_session.query(album)
+        qry = db_session.query()
         results = qry.all()
 
     if not results:

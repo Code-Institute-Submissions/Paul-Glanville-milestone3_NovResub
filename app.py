@@ -98,6 +98,29 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/update_profile/<username>", methods=["GET", "POST"])
+def update_profile(username):
+    if request.method == "POST":
+        user = mongo.db.users.find_one({"username": username})
+        user_type = user['user_type']
+        update_profile = {
+            "user_type": "normal_user",
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name")
+        }
+        try:
+            mongo.db.users.update({"username": username}, update_profile)
+            flash("User Profile Successfully Updated")
+        except Exception as e:
+            flash("An exception occurred when updating the user: " +
+                  getattr(e, 'message', repr(e)))
+    user = mongo.db.users.find_one({"username": username})
+    return render_template("/profile.html",
+                           username=session['user'], user=user)
+
+
 @app.route("/add_book", methods=["GET", "POST"])
 def add_book():
     if request.method == "POST":

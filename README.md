@@ -52,7 +52,8 @@ had an issue while testing the page I was unable to click on the login and regis
 originally when trying to load the page it wouldn't function, after a brief discussion and check over the app.py noticed that i had made minor spelling mistake for the functions and route, But have corrected and now runs when needed.<br>
 When using search function, error 500 would appear<br>
 Current issues with new review being added but noty displaying on either home page or profile page of the user<br>
-having current problem where HEROKU says project is deployed but when clickingthe view button an error appears and unable to properly view the project on HEROKU.<br>
+Had an issue with the login and register pages in which details were input but nothing would happen, this has been fixed and users are directed to profile once logged in or registered.<br>
+having current problem where HEROKU says project is deployed but when clicking the view button an error appears and unable to properly view the project on HEROKU.<br>
 
 
 ---

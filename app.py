@@ -24,32 +24,6 @@ def get_books():
     return render_template("books.html", books=books)
 
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    books = list(mongo.db.tasks.find({"$text": {"$search": query}}))
-    return render_template("books.html", books=books)
-
-
-def search_results(search):
-    results = []
-    search_string = search.data['search']
-
-    if search.data['search'] == '':
-        qry = db_session.query()
-        results = qry.all()
-
-    if not results:
-        flash('no results found!')
-        return redirect('/')
-    else:
-        # display results
-        return render_template('results.html', results=results)
-
-if __name__ == '__main__':
-    app.run()
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

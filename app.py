@@ -48,7 +48,7 @@ def register():
             flash("Registration successful")
         except Exception as e:
             flash("An exception occurred when adding a new user: " +
-                getattr(e, 'message', repr(e)))
+                  getattr(e, 'message', repr(e)))
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
@@ -148,7 +148,7 @@ def add_book():
     return render_template("add_book.html")
 
 
-@app.route("/edit_book", methods=["GET", "POST"])
+@app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     if request.method == "POST":
         submit = {

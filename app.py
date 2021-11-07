@@ -131,7 +131,7 @@ def delete_profile(username):
 
 
 @app.route("/add_book", methods=["GET", "POST"])
-def add_book():
+def add_book(book_id):
     if request.method == "POST":
         book = {
             "category_name": request.form.get("category_name"),
@@ -176,5 +176,5 @@ def delete_book(book_id):
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-        port=int(os.environ.get("PORT")),
-        debug=False)
+            port=int(os.environ.get("PORT")),
+            debug=False)

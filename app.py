@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_books")
 def get_books():
-    books = list(mongo.db.tasks.find())
+    books = list(mongo.db.books.find())
     return render_template("books.html", books=books)
 
 
@@ -119,6 +119,15 @@ def update_profile(username):
     user = mongo.db.users.find_one({"username": username})
     return render_template("/profile.html",
                            username=session['user'], user=user)
+
+
+@app.route("/delete_profile/<username>")
+def delete_profile(username):
+    try:
+        books_to_delete = list(mongo.db.books.find(
+                            {"books_created_by": username}))
+        for books in books_to_delete:
+            book_id = str(book['_id'])
 
 
 @app.route("/add_book", methods=["GET", "POST"])

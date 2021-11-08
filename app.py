@@ -128,10 +128,13 @@ def delete_profile(username):
                             {"books_created_by": username}))
         for books in books_to_delete:
             book_id = str(book['_id'])
+    except Exception as e:
+        flash("An exception occurred when deleting the user: " +
+              getattr(e, 'message', repr(e)))
 
 
 @app.route("/add_book", methods=["GET", "POST"])
-def add_book(book_id):
+def add_book():
     if request.method == "POST":
         book = {
             "category_name": request.form.get("category_name"),

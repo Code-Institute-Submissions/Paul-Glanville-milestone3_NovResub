@@ -172,12 +172,8 @@ def edit_book(book_id):
 
 @app.route("/delete_book/<book_id>")
 def delete_book(book_id):
-    try:
-        mongo.db.tasks.remove({"_id": objectId(book_id)})
-        flash("Reveiw successfully deleted")
-    except Exception as e:
-        flash("An exception occurred when deleting the review: " +
-              getattr(e, 'message', repr(e)))
+    mongo.db.tasks.remove({"_id": objectId(book_id)})
+    flash("Reveiw successfully deleted")
     return redirect(url_for("get_books"))
         
 
